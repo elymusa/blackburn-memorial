@@ -1,0 +1,74 @@
+.dashboard-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f3e5c4;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    color: #333;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #5a4a34;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.dashboard-header h1 {
+    margin: 0;
+    color: #5a4a34;
+    font-family: 'Lora', serif;
+}
+
+.dashboard-link {
+    color: #5a4a34;
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+.dashboard-link:hover {
+    text-decoration: underline;
+}
+
+.add-new-btn {
+    margin-bottom: 20px;
+}
+
+.people-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.person-item {
+    background: #fff;
+    padding: 15px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ddd;
+}
+
+.person-item span {
+    font-weight: bold;
+}
+
+.person-actions .btn {
+    margin-left: 10px;
+    padding: 5px 10px;
+    font-size: 0.9rem;
+}
+
+.btn-danger {
+    background-color: #c82333;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #a21b28;
+}

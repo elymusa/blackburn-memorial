@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora&display=swap');
+
+/* Static title for the website */
+.main-title {
+  font-family: 'Great Vibes', cursive; /* Calligraphy font */
+  font-size: 3.5rem;
+  color: #5a4a34;
+  text-align: center;
+  margin: 20px 0;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Main container for the book */
+.book-container {
+  /* Set a fixed size to ensure there's enough space for two 600px pages */
+  width: 600px;
+  height: 700px; /* Reduced height for the title */
+  margin: 0 auto; /* Center the book horizontally */
+  /* display: flex; /* To hold the two pages from the flipbook */
+}
+
+/* Styles for each page */
+
+.page {
+  background-size: 100% 100%; /* Stretch the image to fill the page */
+  border: 1px solid #7c6c54;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: auto; /* This will allow the page to scroll if content overflows */
+  background-color: #fff;
+}
+
+/* Container for the biography text and scroll-to-top button */
+.biography-container {
+  position: relative; /* Establishes a positioning context for the button */
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* This is the key change to make it fill vertical space */
+  min-height: 0; /* Prevents flexbox sizing issues with large content */
+  width: 90%; /* Match the width of the flip-cards */
+  margin: 15px 0; /* Add some vertical spacing */
+}
+
+/* Biography text styling */
+.biography {
+  font-family: 'Lora', serif; /* An elegant, readable serif font */
+  line-height: 1.6;
+  text-align: justify;
+  padding: 1em;
+  font-size: 1.1rem; /* Adjusted for readability */
+  flex-grow: 1; /* Allow the biography to fill the available space */
+  overflow-y: auto;
+  min-height: 0;
+  color: #000; /* Dark brown text for readability */
+  /* The background-color overlay is removed to show the texture. */
+  background-attachment: local; /* This is the key change to make the background scroll with the text. */
+  border-radius: 5px; /* Soften the edges of the text box */
+}
+
+/* Drop cap for the biography */
+.biography::first-letter {
+  font-size: 4em; /* Larger size for the drop cap */
+  float: left;
+  line-height: 1;
+  margin-right: 0.1em;
+  font-family: 'Great Vibes', cursive; /* A decorative font for the drop cap */
+}
+
+/* Button to scroll the biography back to the top */
+.back-to-top-button {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  z-index: 10;
+  background-color: rgba(90, 74, 52, 0.7); /* Semi-transparent dark brown */
+  color: #f3e5c4;
+  border: 1px solid rgba(243, 229, 196, 0.5);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+}
+
+.back-to-top-button:hover {
+  background-color: rgba(90, 74, 52, 1); /* Solid on hover */
+}
+
+/* Flipping Card Styles */
+.flip-card {
+  background-color: transparent;
+  width: 90%;
+  max-width: 400px;
+  height: auto;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.flip-card-inner {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.flip-card-front, .flip-card-back {
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.flip-card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.flip-card-back {  color: #333;
+  transform: rotateY(180deg);
+  padding: 15px;
+  font-size: 0.9rem; 
+
+  transform: translateY(-50%);
+  z-index: 1000; /* Ensure it's above the book */
+  background-color: #a02020; /* Classic wax seal red */
+  color: #f3e5c4; /* Parchment color for the arrow */
+  border: 2px solid #801010; /* Darker red for border */
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 2px 8px 4px -6px rgba(0,0,0,0.5),
+              inset -1px -3px 10px rgba(0,0,0,0.2),
+              inset 2px 3px 5px rgba(255,255,255,0.2);
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+}
+
+.nav-button:hover {
+  background-color: #b02828; /* Slightly lighter red on hover */
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 4px 10px 8px -8px rgba(0,0,0,0.6),
+              inset -1px -3px 10px rgba(0,0,0,0.2),
+              inset 2px 3px 5px rgba(255,255,255,0.2);
+}
+
+.prev-button {
+  left: 50px; /* Position on the left */
+  border-radius: 49% 51% 50% 50% / 62% 44% 56% 38%; /* Irregular shape */
+}
+
+.next-button {
+  right: 50px; /* Position on the right */
+  border-radius: 51% 49% 52% 48% / 45% 58% 42% 55%; /* Different irregular shape */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .biography {
+    font-size: 0.8rem;
+  }
+  .flip-card-back {
+    font-size: 0.7rem;
+  }
+  .nav-button {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+}
+
+.admin-link {
+  position: fixed;
+  bottom: 10px;
+  right: 15px;
+  z-index: 1001; /* Above nav buttons */
+  background-color: transparent;
+  color: #5a4a34;
+  padding: 5px;
+  text-decoration: none;
+  font-family: 'Lora', serif;
+  font-size: 0.8rem;
+  transition: color 0.3s;
+}
+
+.admin-link:hover {
+  color: #3b2f20;
+
+text-decoration: underline;
+}
